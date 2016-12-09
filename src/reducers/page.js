@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   user: '',
-  text: ''
+  posts: []
 }
 
 export default function page(state = initialState, action) {
@@ -16,13 +16,12 @@ export default function page(state = initialState, action) {
       return { ...state, user: action.payload }
 
     case ADD_POST:
-      return { ...state, user: state.user, text: action.payload }
+      return { ...state, user: state.user, posts: [...state.posts, action.payload] }
 
     case ADD_COMMENT:
-      return { ...state, user: action.payload.user, text: action.payload.text }
+      return { ...state, user: action.payload.user }
 
     default:
       return state;
   }
-
 }
