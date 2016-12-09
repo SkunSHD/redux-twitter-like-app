@@ -103,6 +103,9 @@ h2 {
   border: 3px solid #cccccc;
   margin: 25px 0 5px 0;
 }
-.post {
+.post, .comment {
   margin: 10px;
+}
+.comment {
+  margin-left: 10px;
 }

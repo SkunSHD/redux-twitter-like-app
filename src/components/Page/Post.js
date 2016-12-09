@@ -8,15 +8,22 @@ export default class Post extends React.Component {
   }
   render() {
     const { user, text } = this.props.post
+    const { comments } = this.props.comments
+
+    if (comments && comments.length > 0) {
+      console.log(comments)
+    }
     return <div className='post'> 
       <h3>Name: {user}</h3>
       <p>Text:  {text}</p>
       <input ref={(input) => this.inputComment = input} />
       <button onClick={this.onBtnClickComment}>Add comment</button>
+      { comments }
     </div>
   }
 }
 
 Post.propTypes = {
-  post: React.PropTypes.object.isRequired
+  post: React.PropTypes.object.isRequired,
+  comments: React.PropTypes.array.isRequired
 }

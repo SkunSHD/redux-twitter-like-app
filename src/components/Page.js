@@ -9,7 +9,7 @@ export default class Page extends Component {
     this.postInput.value = ''
   }
   render() {
-    const { user, posts } = this.props
+    const { user, posts, comments } = this.props
     let formTemplate, assembledPosts
 
     if (user) {
@@ -29,12 +29,12 @@ export default class Page extends Component {
     }
 
     if (posts && posts.length > 0) {
-      assembledPosts = posts.map((post, i) => <Post key={i+Math.random()} post={post} /> )
+      assembledPosts = posts.map((post, i) => <Post key={i+Math.random()} post={post} comments={comments} /> )
     }
 
     return <div>
-      {formTemplate}
-      { assembledPosts && assembledPosts.length > 0 ? assembledPosts : ''}
+      { formTemplate }
+      { assembledPosts && assembledPosts.length > 0 ? assembledPosts : '' }
     </div>
   }
 }
@@ -42,6 +42,7 @@ export default class Page extends Component {
 Page.propTypes = {
   user: PropTypes.string.isRequired,
   posts: PropTypes.array.isRequired,
+  comments: PropTypes.array.isRequired,
   addPost: PropTypes.func.isRequired,
   addComment: PropTypes.func.isRequired
 }

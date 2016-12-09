@@ -14,12 +14,12 @@ export function addPost(post) {
   }
 }
 
-export function addComment(data) {
+export function addComment(comment) {
 
   return (dispatch) => {
     dispatch({
       type: ADD_COMMENT,
-      payload: data
+      payload: comment
     })
    
   }

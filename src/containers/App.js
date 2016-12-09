@@ -8,14 +8,14 @@ import * as pageActions from '../actions/PageActions'
 
 class App extends Component {
   render() {
-     const { user, posts } = this.props.page
+     const { user, posts, comments } = this.props.page
      const { addPost, addComment } = this.props.pageActions
      const { name, error } = this.props.user
      const { handleLogin } = this.props.userActions
     
     return <div>
       <User name={name} error={error} handleLogin={handleLogin} />
-      <Page user={user} posts={posts} addPost={addPost} addComment={addComment} />
+      <Page user={user} posts={posts} addPost={addPost} comments={comments} addComment={addComment} />
     </div>
   }
 }
