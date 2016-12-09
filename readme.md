@@ -32,10 +32,10 @@
 
 ### To run this app you need:
 
-In the project directory run:
+* In the project directory run:
 
 #### `npm install`
 
 #### `npm start`
 
-#### Open http://localhost:3000 to view it in the browser.
+* Open http://localhost:3000 to view it in the browser.
