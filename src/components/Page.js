@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import Post from './Page/Post'
 
 export default class Page extends Component {
+  
   onCurrencyBtnClick = (e) => {
     e.preventDefault()
     const postText = this.postInput.value
@@ -12,6 +13,7 @@ export default class Page extends Component {
       post_id
     })
     this.postInput.value = ''
+    this.postInput.focus()
   }
 
   render() {
@@ -24,11 +26,11 @@ export default class Page extends Component {
           className='add_text__textarea'
           defaultValue=''
           placeholder='Type your text here...'
-          ref={(input) => { this.postInput = input}}
+          ref={(text) => { this.postInput = text} }
         />
         <button 
           className='add_post__btn' 
-          onClick={this.onCurrencyBtnClick}>
+          onClick={ this.onCurrencyBtnClick }>
           Add new post
         </button>
       </form>

@@ -1,13 +1,12 @@
 import React, { PropTypes, Component } from 'react'
-import ReactDOM from 'react-dom';
 
 export default class User extends Component {
   componentDidMount() {
-    if(!this.props.name) ReactDOM.findDOMNode(this.refs.login__input).focus();
+    this.inputPostText.focus()
   }
   onBtnLoginClickHandler = (e) => {
     e.preventDefault()
-    const username = ReactDOM.findDOMNode(this.refs.login__input).value;
+    const username = this.inputPostText.value;
     this.props.handleLogin(username)
   }
   render() {
@@ -22,7 +21,7 @@ export default class User extends Component {
           type='text'
           className='sign_in__input'
           placeholder='Type your login here...'
-          ref='login__input'
+          ref={(input) => {this.inputPostText = input}}
         />
         <button
           className='sign_in__btn'
