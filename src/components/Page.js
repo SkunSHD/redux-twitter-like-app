@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import Post from './Page/Post'
 
 export default class Page extends Component {
-  
+
   onCurrencyBtnClick = (e) => {
     e.preventDefault()
     const postText = this.postInput.value
@@ -36,13 +36,21 @@ export default class Page extends Component {
       </form>
     }
 
-    if (posts && posts.length > 0) {
+    if (posts.length > 0) {
       postsAssembled = posts.map((post, i) => <Post key={i+Math.random()} post={post} comments={comments} addComment={addComment} /> )
+    }
+
+    if (postsAssembled) {
+      postsAssembled = <div className='posts'>
+        <h2>POSTS:</h2>
+        {postsAssembled}
+      </div>
     }
 
     return <div>
       { formTemplate }
-      { postsAssembled && postsAssembled.length > 0 ? postsAssembled : '' }
+      { postsAssembled }
+      
     </div>
   }
 }

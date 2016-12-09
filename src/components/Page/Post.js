@@ -18,7 +18,7 @@ export default class Post extends React.Component {
     const { user, text, post_id } = this.props.post
     const { comments } = this.props
 
-    if (comments && comments.length > 0) {
+    if (comments.length > 0) {
       commentsAssembled = comments.filter((comment) => {
         return comment.post_id == post_id
       })
@@ -28,20 +28,22 @@ export default class Post extends React.Component {
         })
 
         commentsAssembled = <div>
-          <h2>Comments</h2>
+          <h2>Comments:</h2>
           {commentsAssembled}
         </div>
       }
-    }
-    console.log(commentsAssembled)
-    
+    }    
 
-    return <div className='post'> 
-      <h3>Name: {user}</h3>
-      <p>Text:  {text}</p>
-      <input ref={(input) => this.inputComment = input} />
-      <button onClick={this.onBtnClickAddComment}>Add comment</button>
-      {commentsAssembled}
+    return <div className='post-block'>
+      <div className='post'> 
+        <h3>Name: {user}</h3>
+        <p>Text:  {text}</p>
+        <input ref={(input) => this.inputComment = input} />
+        <button onClick={this.onBtnClickAddComment}>Add comment</button>
+      </div>
+      <div className='comments-block'>
+        {commentsAssembled}
+      </div>        
     </div>
   }
 }

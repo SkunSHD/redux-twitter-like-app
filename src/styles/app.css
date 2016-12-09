@@ -106,6 +106,12 @@ h2 {
 .post, .comment {
   margin: 10px;
 }
-.comment {
-  margin-left: 10px;
+.comments-block {
+    padding-left: 30px;
+}
+.sign_in__input, .post-block {
+  margin-top: 20px;
+}
+.posts {
+  margin-top: 50px;
 }

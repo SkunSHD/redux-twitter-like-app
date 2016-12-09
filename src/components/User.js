@@ -14,9 +14,10 @@ export default class User extends Component {
     let template
 
     if (name) {
-      template = <h2 className='logged'>Welcome, Herr {name}!</h2>
+      template = <h2>Welcome, Herr {name}!</h2>
     } else {
-      template = <form className='add cf'>
+      template = <form>
+        <h2>Type your login to sign in</h2>
         <input
           type='text'
           className='sign_in__input'
@@ -32,7 +33,7 @@ export default class User extends Component {
       </form>
     }
     
-    return <div className='ib user'>
+    return <div className='ib'>
       {template}
       {error ? <p className='error'> {error}. <br /> Please try again.</p> : ''}
     </div>
