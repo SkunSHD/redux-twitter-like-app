@@ -1,29 +1,39 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
+import Comment from './Comment'
 
 export default class Post extends React.Component {
-  onBtnClickComment = (e) => {
+  onBtnClickAddComment = (e) => {
     e.preventDefault()
-    console.log(this.inputComment.value)
+    this.props.addComment({
+      post_id: this.props.post.post_id,
+      user: this.props.post.user,
+      text: this.inputComment.value
+    })
     this.inputComment.value = ''
   }
   render() {
-    const { user, text } = this.props.post
-    const { comments } = this.props.comments
+    let commentsAssembled
+    const { user, text, post_id } = this.props.post
+    const { comments } = this.props
 
     if (comments && comments.length > 0) {
-      console.log(comments)
+      commentsAssembled = comments.map((comment, i) => {
+        if (comment.post_id == post_id) return <Comment key={i+Math.random()} comment={comment} />
+      })
     }
+
     return <div className='post'> 
       <h3>Name: {user}</h3>
       <p>Text:  {text}</p>
       <input ref={(input) => this.inputComment = input} />
-      <button onClick={this.onBtnClickComment}>Add comment</button>
-      { comments }
+      <button onClick={this.onBtnClickAddComment}>Add comment</button>
+      { commentsAssembled }
     </div>
   }
 }
 
 Post.propTypes = {
-  post: React.PropTypes.object.isRequired,
-  comments: React.PropTypes.array.isRequired
+  post: PropTypes.object.isRequired,
+  comments: PropTypes.array.isRequired,
+  addComment: PropTypes.func.isRequired
 }

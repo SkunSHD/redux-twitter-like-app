@@ -5,12 +5,18 @@ export default class Page extends Component {
   onCurrencyBtnClick = (e) => {
     e.preventDefault()
     const postText = this.postInput.value
-    this.props.addPost({user: this.props.user, text: postText})
+    const post_id = 'id_' + Math.floor(Math.random() * 100000)
+    this.props.addPost({
+      user: this.props.user, 
+      text: postText,
+      post_id
+    })
     this.postInput.value = ''
   }
+
   render() {
-    const { user, posts, comments } = this.props
-    let formTemplate, assembledPosts
+    const { user, posts, comments, addComment } = this.props
+    let formTemplate, postsAssembled
 
     if (user) {
       formTemplate = <form> 
@@ -29,12 +35,12 @@ export default class Page extends Component {
     }
 
     if (posts && posts.length > 0) {
-      assembledPosts = posts.map((post, i) => <Post key={i+Math.random()} post={post} comments={comments} /> )
+      postsAssembled = posts.map((post, i) => <Post key={i+Math.random()} post={post} comments={comments} addComment={addComment} /> )
     }
 
     return <div>
       { formTemplate }
-      { assembledPosts && assembledPosts.length > 0 ? assembledPosts : '' }
+      { postsAssembled && postsAssembled.length > 0 ? postsAssembled : '' }
     </div>
   }
 }
