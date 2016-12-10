@@ -5,7 +5,7 @@ import {
 } from '../constants/User'
 
 export function handleLogin(username) {
-  
+
   const randomInteger = (min, max) => {
     var rand = min - 0.5 + Math.random() * (max - min + 1)
     rand = Math.round(rand);
@@ -29,7 +29,7 @@ export function handleLogin(username) {
       setTimeout(() => {
         dispatch({
           type: LOGIN_FAIL,
-          payload: {'message': 'Something happend'}
+          payload: {'message': 'Something really bad happend...'}
         })
       }, 1000)
     }

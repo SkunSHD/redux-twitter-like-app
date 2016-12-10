@@ -10,7 +10,7 @@ export function addPost(post) {
       type: ADD_POST,
       payload: post
     })
-   
+
   }
 }
 
@@ -21,6 +21,6 @@ export function addComment(comment) {
       type: ADD_COMMENT,
       payload: comment
     })
-   
+
   }
 }

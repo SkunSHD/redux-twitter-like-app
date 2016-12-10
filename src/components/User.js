@@ -1,20 +1,23 @@
 import React, { PropTypes, Component } from 'react'
 
 export default class User extends Component {
+
   componentDidMount() {
     this.inputPostText.focus()
   }
+
   onBtnLoginClickHandler = (e) => {
     e.preventDefault()
     const username = this.inputPostText.value;
     this.props.handleLogin(username)
   }
+
   render() {
-    const { name, error } = this.props
+    const { user, error } = this.props
     let template
 
-    if (name) {
-      template = <h2>Welcome, Herr {name}!</h2>
+    if (user) {
+      template = <h2>Welcome, {user}!</h2>
     } else {
       template = <form>
         <h2>Type your login to sign in</h2>
@@ -32,16 +35,16 @@ export default class User extends Component {
         </button>
       </form>
     }
-    
+
     return <div className='ib'>
       {template}
-      {error ? <p className='error'> {error}. <br /> Please try again.</p> : ''}
+      {error ? <p className='error'> {error}.<br />Please try again.</p> : ''}
     </div>
   }
 }
 
 User.propTypes = {
-  name: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
   handleLogin: PropTypes.func.isRequired
 }

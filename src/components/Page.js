@@ -7,8 +7,9 @@ export default class Page extends Component {
     e.preventDefault()
     const postText = this.postInput.value
     const post_id = 'id_' + Math.floor(Math.random() * 100000)
+
     this.props.addPost({
-      user: this.props.user, 
+      user: this.props.user,
       text: postText,
       post_id
     })
@@ -21,15 +22,15 @@ export default class Page extends Component {
     let formTemplate, postsAssembled
 
     if (user) {
-      formTemplate = <form> 
-        <textarea 
+      formTemplate = <form>
+        <textarea
           className='add_text__textarea'
           defaultValue=''
           placeholder='Type your text here...'
           ref={(text) => { this.postInput = text} }
         />
-        <button 
-          className='add_post__btn' 
+        <button
+          className='add_post__btn'
           onClick={ this.onCurrencyBtnClick }>
           Add new post
         </button>
@@ -50,7 +51,7 @@ export default class Page extends Component {
     return <div>
       { formTemplate }
       { postsAssembled }
-      
+
     </div>
   }
 }
