@@ -45,7 +45,7 @@
 * Initial state of app
 ![screenshot of sample](http://s019.radikal.ru/i611/1612/5a/40be4adbd462.png)
 
-* Failed try of ligigning
+* Failed try of logging
 ![screenshot of sample](http://s017.radikal.ru/i439/1612/72/0526b57948f6.png)
 
 * Initial state of signed up user
