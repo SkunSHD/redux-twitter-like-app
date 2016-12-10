@@ -43,5 +43,5 @@ export default class User extends Component {
 User.propTypes = {
   name: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
-  handleLogin: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired
 }
