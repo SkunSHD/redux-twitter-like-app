@@ -1,6 +1,6 @@
 import {
   ADD_POST,
-  ADD_COMMENT,
+  ADD_COMMENT
 } from '../constants/Page'
 
 const initialState = {
